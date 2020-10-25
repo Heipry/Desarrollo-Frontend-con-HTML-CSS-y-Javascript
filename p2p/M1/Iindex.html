@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P2P Tema 1 MOOC Desarrollo Frontend</title>
+    <style>
+        html{
+            background-color: #fffaf0;
+            color:#555;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 16px;
+        }
+        header{
+            background-color: lightslategray;
+            border: black solid 2px;
+            padding: 10px;
+            color: whitesmoke;
+        }
+        nav ul{
+            display: flex;
+            flex-wrap: nowrap;
+            background-color: lightslategray;
+            margin: 30px 0 90px 0;
+        }
+        nav ul li{
+            background-color: black;
+            width: calc(100%/3 - 10px);
+            margin: 10px;
+            text-align: center;
+            line-height: 45px;
+            list-style-type: none;
+        }
+        nav ul li:hover{
+            background-color: #333;
+            
+        }
+        nav ul li a{
+            text-decoration: none;
+            color: white;
+        }
+        article{
+            margin: 0 2%;
+            box-shadow: 1px 1px 2px 2px darkgray;
+            padding: 5px;
+            margin-bottom: 50px;
+        }
+        footer{
+            background-image: linear-gradient(#fffaff, black);
+            color: lightsalmon;            
+            padding-top: 60px;
+            text-align: center;
+            font-size: .8em;
+        }
+        @media screen and (min-width: 992px){
+            section{
+            width: 70%;
+            float: left;
+            }
+            aside{
+                width: 26%;
+                float: right;
+            }
+            footer{
+                clear: both;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Secciones y líneas generales de un documento HTML5</h1>
+        <p>La especificación <strong>HTML5</strong> trae muchos nuevos elementos a los desarrolladores web, permitiéndoles describir la estructura de un documento web con semántica estandarizada. Este documento describe estos elementos y cómo usarlos para definir el perfil de cualquier documento.</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#first">Problemas resueltos por HTML5</a> </li>
+            <li><a href="#second">El algoritmo de perfilado de HTML5</a> </li>
+            <li><a href="#example">Ejemplo</a> </li>
+        </ul>
+    </nav>
+    <section>
+        <article id="first">
+            <h2>Problemas resueltos por HTML5</h2>
+            <p>La definición de la estructura de un documento en HTML 4 y su <em>algoritmo de perfilado</em> es muy tosco y genera numerosos problemas:</p>
+            <ul>
+                <li>HTML5 quita la necesidad de elementos &lt;div&gt; para definir secciones semánticas sin definir valores específicos para los atributos class, introduciendo un nuevo elemento, &lt;section&gt;, el elemento de sección HTML.</li>
+                <li>Mezclar varios documentos es difícil: la inclusión de un sub-documento en un documento principal. Esto se resuelve en HTML5 con los elementos de seccionado (&lt;article&gt;, &lt;section&gt;, &lt;nav&gt; y &lt;aside&gt;) son siempre subsecciones de su sección ancestra más cercana.</li>
+                <li>HTML5 introduce el elemento &lt;hgroup&gt; que oclita todos los elementos de cabecera excepto el primero de más alto rango (por ejemplo, &lt;hgroup&gt;&lt;h1&gt;Justine&lt;/h1&gt;&lt;h2&gt;Les Malheurs de la Vertu&lt;/h2&gt;&lt;/hgroup&gt; crea el perfil 1. Justine).</li>
+                <li>Un documento puede tener secciones especiales conteniendo información relacionado que no es parte del flujo principal. HTML5 introduce el elemento &lt;aside&gt; permitiendo a dichas secciones no ser parte del perfil principal.</li>
+                <li>Hay información relacionada no al documento pero si al sitio entero, como logos, menús, tablas de contenidos, o información de derechos de autor y notas legales. Para ese propósito, HTML5 introduce tres elementos de sección específicos: &lt;nav&gt; para colecciones de enlaces, como una tabla de contenidos, &lt;footer&gt; y &lt;header&gt; información relacionada con el sitio.</li>
+                </ul>
+            <p>De manera más general, HTML5 trae precisión a las características de seccionado y cabecera, permitiendo a los perfiles de documento ser predecibles y usados por el navegador para mejorar la experiencia de usuario.</p>
+        </article>
+        <article id="second">
+            <h2>El algoritmo de perfilado de HTML5</h2>
+            <h3>Definiendo secciones en HTML5</h3>
+            <p>Todo el contenido incluido dentro del elemento &lt;body&gt; es parte de una sección. Las secciones en HTML5 pueden ser anidadas. Además de la sección principal, definida por el elemento &lt;body&gt;, los límites de la sección son definidos explícita o implícitamente. La secciones definidas explícitamente son el contenido definido en las etiquetas &lt;body&gt;, &lt;section&gt;, &lt;article&gt;, &lt;aside&gt;, &lt;footer&gt;, &lt;header&gt;, y &lt;nav&gt;. <strong>Nota: Cada sección puede tener su propia jerarquía de cabeceras. Por lo tanto, incluso una sección anidada puede tener un elemento &lt;h1&gt;.</strong> <em>Consulte también Definiendo cabeceras en HTML5.</em>
+</p>
+        </article>
+    </section>
+    <aside id="example">
+        <h2>Ejemplo:</h2>
+        <pre>
+&lt;section&gt;
+    &lt;h1&gt;Forest elephants&lt;/h1&gt;
+&lt;section&gt;
+    &lt;h1&gt;Introduction&lt;/h1&gt;
+    &lt;p&gt;In this section, we discuss the 
+    lesser known forest elephants.
+&lt;/section&gt;
+&lt;section&gt;
+    &lt;h1&gt;Habitat&lt;/h1&gt;
+    &lt;p&gt;Forest elephants do not live 
+    in trees but among them.
+&lt;/section&gt;
+&lt;aside&gt;
+    &lt;p&gt;advertising block
+    &lt;/aside&gt;
+&lt;/section&gt;
+&lt;footer&gt;
+    &lt;p&gt;(c) 2010 The Example company
+&lt;/footer&gt;
+        </pre>
+    </aside>
+    <footer>
+        2020 - Javier Díaz Garrido
+    </footer>
+</body>
+</html>
