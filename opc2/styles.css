@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;1,700&display=swap');
+html {
+  background-color: #fffaf0;
+  color: #555;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 16px;
+}
+header {
+  background-color: lightslategray;
+  border: black solid 2px;
+  padding: 10px;
+  color: whitesmoke;
+}
+nav ul {
+  display: flex;
+  flex-wrap: nowrap;
+  background-color: lightslategray;
+  margin: 30px 0 90px 0;
+}
+nav ul li {
+  background-color: black;
+  width: calc(100% / 3 - 10px);
+  margin: 10px;
+  text-align: center;
+  line-height: 45px;
+  list-style-type: none;
+}
+nav ul li:hover {
+  background-color: #333;
+}
+nav ul li a {
+  text-decoration: none;
+  color: white;
+}
+article {
+  margin: 0 2%;
+  box-shadow: 1px 1px 2px 2px darkgray;
+  padding: 5px;
+  margin-bottom: 50px;
+}
+footer {
+  background-image: linear-gradient(#fffaff, black);
+  color: lightsalmon;
+  padding-top: 60px;
+  text-align: center;
+  font-size: 0.8em;
+}
+
+#first{
+    font-family: 'Fira Mono', monospace;
+}
+#first h2{
+    font-family: 'Fira Sans', sans-serif;
+}
+#second{
+    font-family: 'Rubik', sans-serif;
+}
+@media screen and (min-width: 992px) {
+  section {
+    width: 70%;
+    float: left;
+  }
+  aside {
+    width: 26%;
+    float: right;
+  }
+  footer {
+    clear: both;
+  }
+}
