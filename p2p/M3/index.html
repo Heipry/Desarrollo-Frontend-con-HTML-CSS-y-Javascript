@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora</title>
+  <meta charset="utf-8">
+  <style>
+    .container{
+      
+      margin: auto;
+      width: 450px;
+    }
+    div{
+      margin: 10px;
+    }
+    input{
+      width: 400px;
+      height: 40px;
+      background-color: gray;
+      font-size: 20px;
+      color: white;
+      text-align: right;
+    }
+    button{
+      min-width: 60px;
+      min-height: 40px;
+      margin: 5px;
+      background-color: dodgerblue;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    button#igual{
+      margin-left: 60px;
+    }
+    .text{
+      width: 400px;
+      background-color: darksalmon;
+      padding: 10px;
+      border: dimgray 2px solid;
+      margin: 5px;
+    }
+  </style>
+  <script type="text/javascript">
+    let operando;
+    let operacion;
+    const vaciar = () => {
+      document.getElementById("pantalla").value = "";
+    }
+
+    const cuadrado = () => {      
+      let num = document.getElementById("pantalla");
+      if (validar(num)===1) {
+         num.value = num.value * num.value;
+        info(num.value);
+      }else{
+        num.value = "Error";
+      }
+     
+    }
+
+    const info = num => {      
+      let msg = document.getElementById("info");
+      switch (true) {
+        case num<100:
+          msg.innerHTML = "Info: El resultado es menor que 100";
+          break;
+        case num>=100 && num<=200:
+          msg.innerHTML = "Info: El resultado está entre 100 y 200";
+          break;
+        case num>200:
+          msg.innerHTML =  msg.innerHTML = "Info: El resultado es superior a 200";
+          break;
+        default:
+          msg.innerHTML =  msg.innerHTML = "Valor no numérico"
+          break;
+      }      
+    }
+
+    const mod = () => {
+      let num = document.getElementById("pantalla");      
+      if (validar(num)===1) {
+        num.value=num.value<0 ? -num.value : +num.value;
+        info(num.value);
+      }else{
+        num.value = "Error";
+      }
+    }
+
+    const fact = () => {
+      mod();
+      let num = document.getElementById("pantalla");   
+      if (validar(num)===1) {
+        let numP=num.value;   
+        for (let index = numP-1; index > 0; index--) {
+        numP=numP*index;        
+        }
+        num.value = numP;
+        info(num.value);
+      }else{
+        num.value = "Error";
+      }
+    }
+
+    const eq = () => {
+      let num = document.getElementById("pantalla");      
+      if (validar(num)===1) {      
+        let operando2=+num.value;
+        switch (operacion) {
+          case '+':
+            num.value = +operando+operando2;
+            break;
+          case '-':
+            num.value = +operando-operando2;
+            break;
+          case '*':
+            num.value = +operando*operando2;
+            break;
+          case '/':
+            num.value = +operando/operando2;
+            break;
+          default:
+            document.getElementById("info").innerHTML = "Ejecuta una operación";
+            return;
+        }
+          operacion='';
+        info(num.value);
+      }else{
+        num.value = "Error";
+      }   
+    }
+
+   const add = () => {
+      let num = document.getElementById("pantalla");      
+      if (validar(num)===1) {
+      
+        operando=num.value;
+        operacion = '+';
+        num.value = '';
+        document.getElementById("info").innerHTML = operando+operacion;   
+        num.select();
+      }else{
+        num.value = "Error";
+      }
+    }
+
+   const sustract = () => {
+      let num = document.getElementById("pantalla");      
+      if (validar(num)===1) {
+        operando=num.value;
+        operacion = '-';
+        num.value = '';
+        document.getElementById("info").innerHTML = operando+operacion;  
+        num.select(); 
+       }else{
+        num.value = "Error";
+      }
+    }
+
+   const mul = () => {
+      let num = document.getElementById("pantalla");      
+      if (validar(num)===1) {
+        operando=num.value;
+        operacion = '*';
+        num.value = '';
+        document.getElementById("info").innerHTML = operando+operacion;   
+        num.select();
+       }else{
+        num.value = "Error";
+      }
+    }
+
+   const div = () => {
+      let num = document.getElementById("pantalla");      
+      if (validar(num)===1) {
+        operando=num.value;
+        operacion = '/';
+        num.value = '';
+        document.getElementById("info").innerHTML = operando+operacion;  
+        num.select();
+       }else{
+        num.value = "Error";
+      }
+    }
+
+    const sumatorio = () => {
+      let list = document.getElementById("pantalla");   
+      if (validar(list)) {
+        let suma = 0;   
+        let nums = list.value.split(',');
+        nums.forEach(num => {
+          suma += +num;
+        });
+        list.value = suma;
+        info(list.value);  
+      }else{
+        list.value = "Error";
+      }        
+    } 
+
+    const ordenar = () => {
+      let list = document.getElementById("pantalla");   
+      if (validar(list)) {
+        let nums = list.value.split(',');
+        nums = nums.sort().toString();
+        list.value = nums;
+        info(list.value);  
+      }else{
+        list.value = "Error";
+      }            
+    }
+
+    const revertir = () => {
+      let list = document.getElementById("pantalla");   
+      if (validar(list)) {        
+        let nums = list.value.split(',');
+        nums = nums.reverse().toString();
+        list.value = nums;
+        info(list.value);   
+      }else{
+        list.value = "Error";
+      }           
+    }
+
+    const quitar = () => {
+      let list = document.getElementById("pantalla");   
+      if (validar(list)) {
+        let nums = list.value.split(',');
+        nums.pop().toString();
+        list.value = nums;
+        info(list.value);  
+      }else{
+        list.value = "Error";
+      }            
+    }
+    const validar = pantalla => {
+      let field = pantalla.value;   
+      if (isNaN(+field)) {
+        let nums = field.split(',');
+        allnumbers= true;
+        nums.forEach(num => {
+        allnumbers = allnumbers && !isNaN(+num) ;
+      });
+      return allnumbers;
+      }    
+      return 1;
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h2>
+      Calculadora:
+    </h2>
+    <input type="text" id="pantalla" onclick="vaciar()">
+    <div>
+      <button id="cuadrado" onclick="cuadrado()">x<sup>2</sup></button>
+      <button id="modulo" onclick="mod()">|x|</button>
+      <button id="factorial" onclick="fact()">x!</button>
+    </div>
+    <div>
+      <button id="suma" onclick="add()">+</button>
+      <button id="resta" onclick="sustract()">-</button>
+      <button id="multiplicacion" onclick="mul()">*</button>
+      <button id="division" onclick="div()">/</button>
+      <button id="igual" onclick="eq()">=</button>
+    </div>
+    <div>
+      <button id="sumatorio" onclick="sumatorio()">[&Sigma;]</button>
+      <button id="ordenar" onclick="ordenar()">[O]</button>
+      <button id="revertir" onclick="revertir()">[R]</button>
+      <button id="quitar" onclick="quitar()">[-]</button>
+    </div>
+    <div class="text">
+      <h2 id="info" class="grande" title="Info sobre el número">Info sobre el número</h2>
+    </div>
+  </div>
+  
+ </body>
+</html>
