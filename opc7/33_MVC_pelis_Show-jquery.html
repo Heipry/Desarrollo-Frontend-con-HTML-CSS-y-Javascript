@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.min.js"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript">
+      $(function() {
+
+          // MODELO
+          var peliculas = [
+              {titulo: "Superlópez",   director: "Javier Ruiz Caldera", estreno: "2018"},
+              {titulo: "E.T.",         director: "Steven Spielberg",    estreno: "1982"},
+              {titulo: "Interstellar", director: "Christopher Nolan",   estreno: "2014"}
+          ];
+
+          // CONTROLADORES
+          indexContr();
+          function indexContr() { $("#main").html(indexView(peliculas))};
+          function showContr(i) { $("#main").html(showView(peliculas[i]))};
+
+          // EVENTOS
+          
+          $(document).on("click", "#index", function(){ indexContr();});
+          $(document).on("click", ".show", function(){ showContr($(this).data("id")); } );
+
+          // VISTAS
+          function indexView (event) {
+              return peliculas.reduce((vista,peli,i) => vista +=`<li class="show" data-id="${i}">${peli.titulo}</li>`, "<ul>" )+"</ul>";
+          };
+
+          function showView (peli) {
+              return `
+              La película <b> ${peli.titulo}</b>, estrenada
+              en el año <b> ${peli.estreno}</b>, fue
+              dirigida por <b> ${peli.director}</b>.
+              <p><button id="index"> Volver </button></p>`
+          }
+
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Mis películas</h1>
+    <div id="main"></div>
+  </body>
+</html>
