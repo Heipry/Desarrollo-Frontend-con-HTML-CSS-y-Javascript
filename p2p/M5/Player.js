@@ -49,25 +49,23 @@ class Player extends Character {
      * Mata al jugador
      */
     collide() {
-        if (!this.dead && this.lives===1) {
-            setTimeout(() => {
-                this.game.endGame();
-                this.sustract();
-            }, 2000);            
-        }
-       if (!this.dead && this.lives > 1) {
-         setTimeout(() => {
-           this.image.src = this.myImage;
-           this.dead= false;
-           this.sustract();
-           
-         }, 2000);
-        
+        if (!this.dead) {
+            this.lives--;      
+             document.getElementById(
+               "livesli"
+             ).innerHTML = `Lives: ${this.lives}`;  
+            if (this.lives===0) {
+                setTimeout(() => {
+                    this.game.endGame();
+                }, 2000);            
+            }else{
+                setTimeout(() => {
+                this.image.src = this.myImage;
+                this.dead= false;      
+                }, 2000);
+            }  
        }      
         super.collide();
     }
-    sustract(){
-        this.lives--;
-        document.getElementById("livesli").innerHTML = `Lives: ${this.lives}`;
-    }
+    
 }

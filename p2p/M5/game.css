@@ -2,12 +2,23 @@ html {
   overflow: hidden;
 }
 
-.Opponent {
+.Opponent{
 	animation: rotation 3s infinite linear;
 	-webkit-animation: rotation 3s infinite linear;
 }
+.Boss{	
+	animation: rotation 1s infinite linear;
+	-webkit-animation: rotation 1s infinite linear;
+}
 
-.paused .Opponent {
+li{
+	list-style-type:  none;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-family: monospace;
+}
+
+.paused .Opponent, .paused .Boss {
 	animation: none;
 	-webkit-animation: none;
 }

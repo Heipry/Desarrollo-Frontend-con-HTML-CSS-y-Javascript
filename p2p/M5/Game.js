@@ -94,13 +94,16 @@ class Game {
      * Elimina al oponente del juego
      */
     removeOpponent () {
-        if (this.opponent) {
-            document.body.removeChild(this.opponent.image);
-            document.getElementById(
-              "scoreli"
-            ).innerHTML = `Score: ${this.score}`;
+        document.getElementById("scoreli").innerHTML = `Score: ${this.score}`;
+        if (this.opponent && this.opponent instanceof Opponent) {
+            document.body.removeChild(this.opponent.image);            
+            this.opponent = new Boss(this);
         }
-        this.opponent = new Boss(this);
+        
+        else {
+            gameover = YOU_WIN_PICTURE;
+            this.endGame();
+        }
     }
 
     /**
@@ -218,7 +221,7 @@ class Game {
      */
     endGame () {
         this.ended = true;
-        let gameOver = new Entity(this, this.width / 2, "auto", this.width / 4, this.height / 4, 0, GAME_OVER_PICTURE)
+        let gameOver = new Entity(this, this.width / 2, "auto", this.width / 4, this.height / 4, 0, gameover)
         gameOver.render();
     }
 
