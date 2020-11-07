@@ -1,0 +1,120 @@
+@charset "UTF-8";
+html, body {
+  background-color: lightblue;
+}
+
+nav {
+  background-color: tomato;
+}
+
+nav div#logo {
+  float: left;
+  width: 150px;
+  background-color: indianred;
+}
+
+nav ul {
+  background-color: tomato;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style-type: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+nav ul li {
+  background-color: yellowgreen;
+  padding: 10px;
+  border: 1px solid green;
+  margin: 4px;
+}
+
+nav ul li:hover {
+  background-color: greenyellow;
+}
+
+nav ul li:hover a {
+  color: tomato;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-weight: bolder;
+}
+
+article, aside {
+  text-align: center;
+  border: yellowgreen 1px solid;
+  padding: 4%;
+  margin: 2em 0;
+}
+
+h1 {
+  clear: both;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+footer {
+  font-size: 0.8em;
+  font-weight: lighter;
+  color: lightblue;
+  background-color: black;
+}
+
+@media screen and (max-width: 500px) {
+  section {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  article {
+    width: 70%;
+  }
+  aside {
+    width: 25%;
+  }
+  nav ul {
+    position: fixed;
+    top: 0;
+    right: 0;
+    float: right;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 5px;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    width: 2em;
+    height: 2em;
+    border-radius: 10px;
+  }
+  nav ul::before {
+    content: "≡";
+  }
+  nav ul:hover {
+    height: inherit;
+    width: 100%;
+    background: rgba(255, 99, 71, 0.5);
+  }
+  nav ul:hover li {
+    display: block;
+    margin: 10px;
+  }
+  li {
+    display: none;
+  }
+}
+/*# sourceMappingURL=styless.css.map */

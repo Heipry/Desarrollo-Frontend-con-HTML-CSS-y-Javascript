@@ -1,0 +1,118 @@
+$bodycolor: lightblue;
+$navcolor:tomato;
+$linkcolor: yellowgreen;
+@mixin menu($color){
+    background-color: $color;     
+    display: flex;
+        
+        list-style-type: none;
+        align-items: center;
+        justify-content: flex-end;
+}
+@mixin media($mw){
+    @media screen and (max-width: #{$mw}){
+        section{
+            display: flex;
+            flex-direction: row;
+        }
+        article{
+            width: 70%;
+        }
+        aside{
+            width: 25%;
+        }
+        @content;
+    }
+}
+html, body{
+    background-color: $bodycolor;
+}
+nav{
+    background-color: $navcolor;
+    
+    div#logo{
+        float: left;
+        width: 150px;
+        background-color: indianred;
+        
+        }
+    ul{
+       @include menu($navcolor);
+  
+        li{
+            background-color: $linkcolor;
+            padding: 10px;
+            border: 1px solid green;
+            margin: 4px;
+
+            
+            &:hover{
+               
+                background-color: greenyellow;
+                a{
+                color: $navcolor;
+                
+            }
+
+            }          
+            a{
+                text-decoration: none;
+                font-weight: bolder;
+                
+            }
+
+        }
+    }
+}
+article, aside{
+    text-align: center;
+    border: $linkcolor 1px solid;
+    padding: 4%;
+    margin: 2em 0;
+}
+h1{
+    clear: both;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+footer{
+    font-size: 0.8em;
+    font-weight: lighter;
+    color: $bodycolor;
+    background-color: black;
+
+}
+@include media(500px){
+    nav ul{ 
+        position: fixed;    
+        top: 0;
+        right: 0;
+        float: right;
+        flex-direction: column;
+        width: 5px;
+        height: 40px;
+        margin: 0;
+        padding: 0;
+        width: 2em;
+        height: 2em;
+        border-radius: 10px;
+         
+        &::before{
+            content: "≡";
+        }
+        &:hover{
+            height: inherit;
+            width: 100%;
+            background: rgba($navcolor, 0.5); ;
+            li{
+                display: block;
+                margin: 10px;
+            }
+        }
+    }
+    li{
+    display: none;  
+      }
+}
+
