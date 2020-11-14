@@ -1,0 +1,75 @@
+html,
+body {
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.Twitter {
+  width: 200px;
+  height: 200px;
+}
+
+.Twitter .bg {
+  fill: #58B5E9;
+  stroke: #2455D3;
+  stroke-width: 2px;
+  fill-opacity: 0;
+  stroke-dasharray: 336px;
+  stroke-dashoffset: 336px;
+  -webkit-transition: stroke-dashoffset 350ms ease-in, fill-opacity 350ms;
+  transition: stroke-dashoffset 350ms ease-in, fill-opacity 350ms;
+  -webkit-transition-delay: 300ms, 270ms;
+          transition-delay: 300ms, 270ms;
+}
+
+.Twitter .bird {
+  fill: #F1F2F2;
+  stroke: #2455D3;
+  stroke-width: 2px;
+  opacity: 0;
+  -webkit-transform: translateY(50px);
+          transform: translateY(50px);
+  -webkit-transition: opacity 350ms, -webkit-transform 350ms;
+  transition: opacity 350ms, -webkit-transform 350ms;
+  transition: opacity 350ms, transform 350ms;
+  transition: opacity 350ms, transform 350ms, -webkit-transform 350ms;
+  -webkit-transition-delay: 50ms, 0;
+          transition-delay: 50ms, 0;
+}
+
+.Twitter.active .bg {
+  fill: #58B5E9;
+  stroke: #2455D3;
+  stroke-width: 2px;
+  fill-opacity: 1;
+  stroke-dashoffset: 0;
+  -webkit-transition: stroke-dashoffset 350ms ease-out, fill-opacity 350ms;
+  transition: stroke-dashoffset 350ms ease-out, fill-opacity 350ms;
+  -webkit-transition-delay: 0, 350ms;
+          transition-delay: 0, 350ms;
+}
+
+.Twitter.active .bird {
+  fill: #F1F2F2;
+  stroke: #2455D3;
+  stroke-width: 2px;
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition: opacity 350ms, -webkit-transform 350ms;
+  transition: opacity 350ms, -webkit-transform 350ms;
+  transition: opacity 350ms, transform 350ms;
+  transition: opacity 350ms, transform 350ms, -webkit-transform 350ms;
+  -webkit-transition-delay: 300ms, 270ms;
+          transition-delay: 300ms, 270ms;
+}
+/*# sourceMappingURL=style.css.map */

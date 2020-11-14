@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 360px;
+        }
+        .cabecera::after{
+            color: violet;
+            content: "\2B9F";
+            transition: color 1s;
+        }
+        .cabecera input{
+            width: 300px;
+            height: 1.5em;
+            background-color: violet;
+            border-radius: 9px;
+            border: white 2px solid;
+            transition: border-color 1s;
+        }
+        .cuerpo{
+            height: 0;
+            overflow: hidden;
+            transition: height 1s;
+        }
+        ul{
+            list-style-type: none;
+            margin-top: 0;
+           width: 80%;
+        }
+        ul li{
+            background-color: aqua;
+            border: white 2px solid;
+            color: white;
+            padding: 2px 8px;
+            width: 100%;
+              border-radius: 15px;
+              transition: color 350ms, border 700ms, background-color 500ms, font-weight 350ms;
+        }
+        ul li:hover{
+            border: black 2px solid;
+            background-color: aquamarine;
+            color: black;
+            font-weight: bold;
+            transition: color 350ms, border 700ms, background-color 500ms, font-weight 350ms;
+        }
+        .container:hover .cuerpo{
+            height: 150px;           
+            transition: height 1s;
+        }
+        .container:hover .cabecera input{
+           border: black 2px solid;
+           transition: border-color 1s;
+        }
+        .container:hover .cabecera::after{
+            color: aqua;
+            content: "\2B9D";
+            transition: color 1s;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="cabecera">
+            <input type="text">
+        </div>
+        <div class="cuerpo">
+            <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+                <li>Item 4</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>
